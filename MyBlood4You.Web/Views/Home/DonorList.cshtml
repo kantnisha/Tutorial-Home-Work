@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Rajas.Persona.Domain.Models.UserModel>
+@{
+    ViewBag.Title = "My Blood For You";
+}
+
+<table>
+    <tr>
+        <th>
+            Group
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Contact Details
+        </th>
+        <th>
+            Address
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                <img class="phone" alt="mobile" src="../../Statics/i/Cell-Phone.png" /> 
+                <div>
+                <span>@Html.DisplayFor(modelItem => item.MobileNumber1)</span>
+                <span>@Html.DisplayFor(modelItem => item.MobileNumber2)</span>
+                <span>@Html.DisplayFor(modelItem => item.LandlineNumber)</span>
+                </div>
+                <div style="clear:both"></div>
+                <a href="mailto:@item.Email?Subject=Need%20Blood"><img alt="email" src="../../Statics/i/email.gif" /></a>
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+                <br />
+                @Html.DisplayFor(modelItem => item.Town)
+                <br />
+                @Html.DisplayFor(modelItem => item.District)
+                <br />
+                @Html.DisplayFor(modelItem => item.State)
+                <br />
+                @Html.DisplayFor(modelItem => item.Country)
+                <br />
+                @Html.DisplayFor(modelItem => item.PinCode)
+            </td>
+        </tr>
+    }
+</table>
+<script type="text/javascript">
+    
+</script>

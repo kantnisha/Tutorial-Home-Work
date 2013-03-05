@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "My Blood For You";
+}
+<div class="slideshow-wrapper">
+<div class="slideshow">
+    <ul class="carousel">
+        <li class="slide"><a href="/application/addnewdonor">
+            <img height="300" width="100%" alt="register as donor" src="../../Statics/i/register-now.jpg" /></a></li>
+        <li class="slide"><a href="/application/DonorSearch">
+            <img height="300" width="100%" alt="register as donor" src="../../Statics/i/find-people.jpg" /></a></li>
+        <li class="slide"><a href="/application/addnewdonor">
+            <img height="300" width="100%" alt="register as donor" src="../../Statics/i/blood_bank.jpg" /></a></li>
+    </ul>
+</div>
+</div>
+<div class="recently-registered">
+<header><h3>Recently Registered</h3></header>
+@Html.Action("RecentlyRegistered", "Application")
+</div>
+
+<div class="fb-comment">
+<header><h3>Say Something...</h3></header>
+@Html.Partial("FacebookComment")
+</div>
+<div style="clear:both;"></div>
+<script type="text/javascript">
+    $(function () {
+        var $slides = $('.slideshow').slides(
+        {
+            skip: false,
+            loop: true,
+            transition: 'crossfade',
+            auto: 6000,
+            speed: 1000,
+            hoverPause: false
+        });
+
+        // Access an instance API
+        api = $slides.eq(0).data('slides');
+
+        // Transition select
+        api.on('click', function () {
+            $slides.stop();
+        });
+
+    });
+</script>

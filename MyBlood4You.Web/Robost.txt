@@ -1,0 +1,6 @@
+﻿User-agent: * 
+Disallow: /
+Disallow: /account/
+Disallow: /application/
+Disallow: /Upload/
+Disallow: /admin/

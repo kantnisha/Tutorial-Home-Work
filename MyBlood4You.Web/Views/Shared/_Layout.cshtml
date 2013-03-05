@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="../../Statics/js/plugins/mb4uplugins.js"></script>
+    <script src="../../Statics/js/plugins/slideshow.js" type="text/javascript"></script>
+    <link href="../../Content/slideshow.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page">
+        <header class="main-head">
+        <h1 class="logo">
+        <a href="/"><img src="../../Statics/i/mbyLogo.png" alt="myblood4you.com" /></a>
+        </h1>
+        <nav>
+            <ul>
+            <li>@Html.ActionLink("Register","AddNewDonor", "Application")</li>
+            <li>@Html.ActionLink("Search A Donor", "DonorSearch", "Application")</li>
+            <li><a href="#">Blood Banks</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        </header>
+        <section id="main">
+           @RenderBody()
+        </section>
+    </div>
+    <footer>
+        </footer>
+</body>
+</html>

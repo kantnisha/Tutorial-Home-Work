@@ -1,0 +1,138 @@
+﻿@model Rajas.Persona.Domain.Models.UserModel
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Personal Details</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BloodGroupId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.BloodGroupId, Model.BloodGroupSource, "--Select--", new { @class = "dropdowns" })
+            @Html.ValidationMessageFor(model => model.BloodGroupId)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MiddelName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MiddelName)
+            @Html.ValidationMessageFor(model => model.MiddelName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Contact Details</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LandlineNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LandlineNumber)
+            @Html.ValidationMessageFor(model => model.LandlineNumber)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MobileNumber1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MobileNumber1)
+            @Html.ValidationMessageFor(model => model.MobileNumber1)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MobileNumber2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MobileNumber2)
+            @Html.ValidationMessageFor(model => model.MobileNumber2)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Address Details</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Address, new {rows=3 })
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CountryId, "Country")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.CountryId, Model.CountrySource, "--Select--", new { @id = "selectedCountry", @class = "dropdowns" })
+            @Html.ValidationMessageFor(model => model.CountryId)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StateId, "State")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.StateId, Enumerable.Empty<SelectListItem>(), "--Select--", new { @id = "selectedState", @class = "dropdowns" })
+            @Html.ValidationMessageFor(model => model.StateId)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DistrictId, "District")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.DistrictId, Enumerable.Empty<SelectListItem>(), "--Select--", new { @id = "selectedDistrict", @class = "dropdowns" })
+            @Html.ValidationMessageFor(model => model.DistrictId)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TownId, "Town")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.TownId, Enumerable.Empty<SelectListItem>(), "--Select--", new { @id = "selectedTown", @class = "dropdowns" })
+            @Html.ValidationMessageFor(model => model.TownId)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PinCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PinCode)
+            @Html.ValidationMessageFor(model => model.PinCode)
+        </div>
+        <p class="add-donor-button-wrapper">
+            <input type="submit" value="REGISTER" class="register-donor-button" />
+        </p>
+    </fieldset>
+    <div style="clear: both" />
+}
+<script type="text/javascript">
+    $(function () {
+        $('#selectedCountry').populateDropDownList({
+            paramName: 'id',
+            url: '/Application/GetStateList',
+            childSelect: $('#selectedState')
+        });
+
+        $('#selectedState').populateDropDownList({
+            paramName: 'id',
+            url: '/Application/GetDistrictList',
+            childSelect: $('#selectedDistrict')
+        });
+
+        $('#selectedDistrict').populateDropDownList({
+            paramName: 'id',
+            url: '/Application/GetTownList',
+            childSelect: $('#selectedTown')
+        });
+    });
+
+</script>
