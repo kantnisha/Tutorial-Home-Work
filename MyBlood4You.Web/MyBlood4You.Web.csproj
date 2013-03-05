@@ -166,19 +166,19 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Persona.Domain\Rajas.Persona.Domain.csproj">
+    <ProjectReference Include="..\..\Solution\Persona.Domain\Rajas.Persona.Domain.csproj">
       <Project>{9591B73D-6AE2-44A5-901C-958A8D103B45}</Project>
       <Name>Rajas.Persona.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Persona.Entities\Rajas.Persona.Entities.csproj">
+    <ProjectReference Include="..\..\Solution\Persona.Entities\Rajas.Persona.Entities.csproj">
       <Project>{5B9068D8-C472-425B-9DB4-48FAF9D6617B}</Project>
       <Name>Rajas.Persona.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Persona.Helper\Rajas.Persona.Helper.csproj">
+    <ProjectReference Include="..\..\Solution\Persona.Helper\Rajas.Persona.Helper.csproj">
       <Project>{AA632993-1732-46F4-BD82-3F03B6542A44}</Project>
       <Name>Rajas.Persona.Helper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Persona.Web.Framework\Rajas.Persona.Web.Framework.csproj">
+    <ProjectReference Include="..\..\Solution\Persona.Web.Framework\Rajas.Persona.Web.Framework.csproj">
       <Project>{9EFBDF50-086A-4F1D-BE46-A0F8B418DF1A}</Project>
       <Name>Rajas.Persona.Web.Framework</Name>
     </ProjectReference>
