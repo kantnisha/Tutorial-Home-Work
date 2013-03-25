@@ -1,35 +1,55 @@
-﻿<!DOCTYPE html>
+﻿@using Rajas.Persona.Domain.Models;
+<!DOCTYPE html>
+@{
+    Layout = string.Empty;
+    var recentDonors = new UserModel();
+    recentDonors.LoadRecentlyRgisteredUsers();
+}
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
-    <script type="text/javascript" src="../../Statics/js/plugins/mb4uplugins.js"></script>
-    <script src="../../Statics/js/plugins/slideshow.js" type="text/javascript"></script>
-    <link href="../../Content/slideshow.css" rel="stylesheet" type="text/css" />
-</head>
+@Html.Partial("~/views/shared/_header.cshtml")
 <body>
-    <div class="page">
-        <header class="main-head">
-        <h1 class="logo">
-        <a href="/"><img src="../../Statics/i/mbyLogo.png" alt="myblood4you.com" /></a>
-        </h1>
-        <nav>
-            <ul>
-            <li>@Html.ActionLink("Register","AddNewDonor", "Application")</li>
-            <li>@Html.ActionLink("Search A Donor", "DonorSearch", "Application")</li>
-            <li><a href="#">Blood Banks</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        </header>
-        <section id="main">
-           @RenderBody()
-        </section>
+    <div class="body">
+        <div class="wrapper" id="wrapper">
+            @Html.Partial("~/views/shared/_PageHeader.cshtml")
+            <table class="contenttable">
+                <tr>
+                    <td class="content vtop">
+                        @RenderBody()
+                    </td>
+                    <td class="fbplugin vtop">
+                        <h1>Social Sharing</h1>
+                        @Html.Partial("~/views/shared/_FacebookTwitterLike.cshtml")
+                        @*@Html.Partial("~/views/shared/_FacebookSubscribe.cshtml")*@
+                        @Html.Partial("~/views/shared/_CA2AdContainer.cshtml")
+                        @Html.Partial("~/views/RecentlyRegisered.cshtml", recentDonors)
+                        @Html.Partial("~/views/shared/_TwitterTweets.cshtml")
+                        @Html.Partial("~/views/shared/_FacebookComment.cshtml")
+                    </td>
+                </tr>
+            </table>
+            <script type="text/javascript">
+                $(function () {
+                    $('#selectedCountry').populateDropDownList({
+                        paramName: 'id',
+                        url: '/Application/GetStateList',
+                        childSelect: $('#selectedState')
+                    });
+
+                    $('#selectedState').populateDropDownList({
+                        paramName: 'id',
+                        url: '/Application/GetDistrictList',
+                        childSelect: $('#selectedDistrict')
+                    });
+
+                    $('#selectedDistrict').populateDropDownList({
+                        paramName: 'id',
+                        url: '/Application/GetTownList',
+                        childSelect: $('#selectedTown')
+                    });
+                });
+            </script>
+        </div>
     </div>
-    <footer>
-        </footer>
+    @Html.Partial("~/Views/Shared/_Footer.cshtml")
 </body>
 </html>

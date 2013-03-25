@@ -10,11 +10,19 @@
     <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyBlood4You.Web</RootNamespace>
-    <AssemblyName>MyBlood4You.Web</AssemblyName>
+    <RootNamespace>Rajas.Persona.Web.MyBlood4You.Web</RootNamespace>
+    <AssemblyName>Rajas.Persona.Web.MyBlood4You.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,78 +71,61 @@
     <Reference Include="System.DirectoryServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelBinder\DonorModelBinder.cs" />
+    <Compile Include="Constants\AppControllers.cs" />
+    <Compile Include="Constants\AppActionMethods.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BloodBankModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\DataRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\styleOld.css" />
+    <Content Include="Content\css\selection.css" />
+    <Content Include="Content\css\global.css" />
+    <Content Include="Content\css\default.css" />
+    <Content Include="Content\css\tablet.css" />
+    <Content Include="Content\css\mobile.css" />
+    <Content Include="Content\css\wide_mobile.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\reset.css" />
+    <Content Include="Content\i\1.gif" />
+    <Content Include="Content\i\1.png" />
+    <Content Include="Content\i\2.gif" />
+    <Content Include="Content\i\2.png" />
+    <Content Include="Content\i\3.gif" />
+    <Content Include="Content\i\3.png" />
+    <Content Include="Content\i\background.jpg" />
+    <Content Include="Content\i\bkg_border-bottom.png" />
+    <Content Include="Content\i\bkg_right-strip.png" />
+    <Content Include="Content\i\BloodChart.png" />
+    <Content Include="Content\i\calendar_icon.png" />
+    <Content Include="Content\i\logobig.gif" />
+    <Content Include="Content\i\logosmall.gif" />
+    <Content Include="Content\i\searchbloodbank.png" />
+    <Content Include="Content\i\left_arrow.png" />
+    <Content Include="Content\i\logo.gif" />
+    <Content Include="Content\i\logo.ico" />
+    <Content Include="Content\i\searchourvolunteer.png" />
+    <Content Include="Content\i\registervolunteer.png" />
+    <Content Include="Content\i\pagination.png" />
+    <Content Include="Content\i\searchdonor.png" />
+    <Content Include="Content\i\right_arrow.png" />
+    <Content Include="Content\i\registerdonor.png" />
+    <Content Include="Content\i\registerbloodbank.png" />
+    <Content Include="Content\js\functions.js" />
+    <Content Include="Content\js\ga.js" />
+    <Content Include="Content\js\home.js" />
+    <Content Include="Content\js\jquery-1.6.1.min.js" />
+    <Content Include="Content\js\jquery.datepick.js" />
+    <Content Include="Content\js\mb4uplugins.js" />
+    <Content Include="Content\js\opt-v2.js" />
     <Content Include="Content\slideshow.css" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
-    <Content Include="Content\themes\base\jquery.ui.all.css" />
-    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
-    <Content Include="Content\themes\base\jquery.ui.base.css" />
-    <Content Include="Content\themes\base\jquery.ui.button.css" />
-    <Content Include="Content\themes\base\jquery.ui.core.css" />
-    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
-    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
-    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
-    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
-    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
-    <Content Include="Content\themes\base\jquery.ui.slider.css" />
-    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
-    <Content Include="Content\themes\base\jquery.ui.theme.css" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="README.jQuery.vsdoc.txt" />
     <Content Include="Robost.txt" />
-    <Content Include="Scripts\jquery-1.9.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Scripts\jquery-ui-1.8.24.js" />
-    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
-    <Content Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Statics\i\bkg_input_email.gif" />
     <Content Include="Statics\i\bkg_input_telephone.png" />
     <Content Include="Statics\i\blood_bank.jpg" />
@@ -156,46 +147,72 @@
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config" />
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Solution\Persona.Domain\Rajas.Persona.Domain.csproj">
+    <ProjectReference Include="..\Persona.Domain\Rajas.Persona.Domain.csproj">
       <Project>{9591B73D-6AE2-44A5-901C-958A8D103B45}</Project>
       <Name>Rajas.Persona.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Solution\Persona.Entities\Rajas.Persona.Entities.csproj">
+    <ProjectReference Include="..\Persona.Entities\Rajas.Persona.Entities.csproj">
       <Project>{5B9068D8-C472-425B-9DB4-48FAF9D6617B}</Project>
       <Name>Rajas.Persona.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Solution\Persona.Helper\Rajas.Persona.Helper.csproj">
+    <ProjectReference Include="..\Persona.Helper\Rajas.Persona.Helper.csproj">
       <Project>{AA632993-1732-46F4-BD82-3F03B6542A44}</Project>
       <Name>Rajas.Persona.Helper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Solution\Persona.Web.Framework\Rajas.Persona.Web.Framework.csproj">
+    <ProjectReference Include="..\Persona.Web.Framework\Rajas.Persona.Web.Framework.csproj">
       <Project>{9EFBDF50-086A-4F1D-BE46-A0F8B418DF1A}</Project>
       <Name>Rajas.Persona.Web.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\DonorList.cshtml" />
+    <Content Include="Views\DonorList.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\AddNewDonor.cshtml" />
+    <Content Include="Views\RegisterDonor.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Test.cshtml" />
-    <Content Include="Views\Home\DonorSearch.cshtml" />
-    <Content Include="Views\Home\RecentlyRegisered.cshtml" />
-    <Content Include="Views\Shared\FacebookComment.cshtml" />
+    <Content Include="Views\Index.cshtml" />
+    <Content Include="Views\Test.cshtml" />
+    <Content Include="Views\DonorSearch.cshtml" />
+    <Content Include="Views\RecentlyRegisered.cshtml" />
+    <Content Include="Views\Shared\_FacebookComment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\css\fonts\delicious-heavy-webfont.eot" />
+    <None Include="Content\css\fonts\delicious-heavy-webfont.woff" />
+    <None Include="Content\css\fonts\mpr-webfont.eot" />
+    <None Include="Content\css\fonts\mpr-webfont.ttf" />
+    <None Include="Content\css\fonts\mpr-webfont.woff" />
+    <None Include="Content\css\fonts\mpsb-webfont.eot" />
+    <None Include="Content\css\fonts\mpsb-webfont.ttf" />
+    <None Include="Content\css\fonts\mpsb-webfont.woff" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Shared\_CA2AdContainer.cshtml" />
+    <Content Include="Views\RegisterBloodBank.cshtml" />
+    <Content Include="Views\WhoWeAre.cshtml" />
+    <Content Include="Views\BloodBankList.cshtml" />
+    <Content Include="Views\VolunteerList.cshtml" />
+    <Content Include="Views\WhatWeDo.cshtml" />
+    <Content Include="Views\Blogs.cshtml" />
+    <Content Include="Views\ContactUs.cshtml" />
+    <Content Include="Views\Shared\_TrackingCode.cshtml" />
+    <Content Include="Views\RegisterVolunteer.cshtml" />
+    <Content Include="Views\Shared\_TwitterTweets.cshtml" />
+    <Content Include="Views\Shared\_FacebookSubscribe.cshtml" />
+    <Content Include="Views\Shared\_FacebookTwitterLike.cshtml" />
+    <Content Include="Views\Shared\_PageHeader.cshtml" />
+    <Content Include="Views\BloodCompatibilityChart.cshtml" />
+    <Content Include="Views\Shared\_FacebookTwitterLikeFlot.cshtml" />
+    <Content Include="Views\Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -219,9 +236,8 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:100/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

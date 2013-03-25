@@ -1,0 +1,141 @@
+﻿@model Rajas.Persona.Web.MyBlood4You.Web.Models.BloodBankModel
+<h1>
+    Register Blood Bank</h1>
+<div class="formdiv">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.BloodBankId)
+        @Html.HiddenFor(model => model.CreatedOn)
+        <table class="form">
+            <tr>
+                <td>
+                    @Html.ValidationSummary(true)
+                </td>
+            </tr>
+            <tr>
+                <td style="min-width: 120px;">
+                    @Html.LabelFor(model => model.BloodBankName)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.BloodBankName, new { style = "width: 250px" })
+                    @Html.ValidationMessageFor(model => model.BloodBankName)
+                </td>
+            </tr>
+            <tr>
+                <td class="vtop">
+                    @Html.LabelFor(model => model.Address)
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.Address, new { cols = 29, rows = 4 })
+                    @Html.ValidationMessageFor(model => model.Address)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.CountryId, "Country")
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.CountryId, Model.CountrySource, "-- Select --", new { @id = "selectedCountry", @class = "dropdowns" })
+                    @Html.ValidationMessageFor(model => model.CountryId)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.StateId, "State")
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.StateId, Enumerable.Empty<SelectListItem>(), "-- Select --", new { @id = "selectedState", @class = "dropdowns" })
+                    @Html.ValidationMessageFor(model => model.StateId)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.DistrictId, "District")
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.DistrictId, Enumerable.Empty<SelectListItem>(), "-- Select --", new { @id = "selectedDistrict", @class = "dropdowns" })
+                    @Html.ValidationMessageFor(model => model.DistrictId)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.TownId, "Town")
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.TownId, Enumerable.Empty<SelectListItem>(), "-- Select --", new { @id = "selectedTown", @class = "dropdowns" })
+                    @Html.ValidationMessageFor(model => model.TownId)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Pincode)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Pincode, new { style = "width: 60px" })
+                    @Html.ValidationMessageFor(model => model.Pincode)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.MobileNo1)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.MobileNo1, new { style = "width: 120px" })
+                    @Html.ValidationMessageFor(model => model.MobileNo1)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.MobileNo2)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.MobileNo2, new { style = "width: 120px" })
+                    @Html.ValidationMessageFor(model => model.MobileNo2)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.LandlineNo)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.LandlineNo, new { style = "width: 120px" })
+                    @Html.ValidationMessageFor(model => model.LandlineNo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.FaxNumber)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.FaxNumber, new { style = "width: 120px" })
+                    @Html.ValidationMessageFor(model => model.FaxNumber)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Email)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Email, new { style = "width: 250px" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Website)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Website, new { style = "width: 250px" })
+                    @Html.ValidationMessageFor(model => model.Website)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" value="Register" class="register-donor-button" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>

@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using Rajas.Persona.Web.Framework.Constants;
-using Rajas.Persona.Domain.Models;
-using Rajas.Persona.Domain.Utility;
-using Rajas.Persona.Helper.Utility;
-
-namespace MyBlood4You.Web
+﻿
+namespace Rajas.Persona.Web.MyBlood4You.Web
 {
-    // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
-    // visit http://go.microsoft.com/?LinkId=9394801
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using Rajas.Persona.Domain.Models;
+    using Rajas.Persona.Domain.Utility;
+    using Rajas.Persona.Helper.Utility;
+    using Rajas.Persona.Web.MyBlood4You.Web.Constants;
+    using Rajas.Persona.Web.MyBlood4You.Web.ModelBinder;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -28,7 +23,7 @@ namespace MyBlood4You.Web
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = Controllers.User.Application, action = "MyBlood4YouHome", id = UrlParameter.Optional });
+                new { controller = AppControllers.Home, action = AppActionMethods.Home.Index, id = UrlParameter.Optional });
         }
 
         protected void Application_Start()
@@ -37,12 +32,18 @@ namespace MyBlood4You.Web
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            RegisterBindings();
 
             WebSiteModel webSiteModel = DomainUtility.GetWebSite(ConfigReader.OwnerApplicationsKey);
             ApplicationObjectHandler.IsApplicationActive = webSiteModel.IsActive;
             ApplicationObjectHandler.ApplicationId = webSiteModel.WebSiteId;
             ApplicationObjectHandler.ApplicationKey = webSiteModel.ConfirmationKey;
             ApplicationObjectHandler.WebsiteDetails = webSiteModel;
+        }
+
+        private void RegisterBindings()
+        {
+            ModelBinders.Binders.Add(typeof(UserModel), new DonorModelBinder());
         }
     }
 }

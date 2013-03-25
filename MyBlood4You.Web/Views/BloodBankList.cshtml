@@ -1,0 +1,57 @@
+﻿@using Rajas.Persona.Web.MyBlood4You.Web.Constants;
+@model Rajas.Persona.Web.MyBlood4You.Web.Models.BloodBankModel
+<h1>
+    Filter Blood Banks</h1>
+@if (Model != null && Model.BloodBankList != null)
+{
+    using (Html.BeginForm(AppActionMethods.Home.SearchVolunteer, AppControllers.Home))
+    {
+    <div class="form">
+        @Html.HiddenFor(model => model.CountryId)
+        @Html.DropDownListFor(model => model.StateId, Model.StateSource,
+            new { OnChange = "$('#DistrictId option:first-child').attr('selected', 'selected');$('#TownId option:first-child').attr('selected', 'selected'); javascript:this.form.submit();" })
+        @Html.DropDownListFor(model => model.DistrictId, Model.DistrictSource,
+            new { OnChange = "$('#TownId option:first-child').attr('selected', 'selected'); javascript:this.form.submit();" })
+        @Html.DropDownListFor(model => model.TownId, Model.TownSource,
+            new { OnChange = "javascript:this.form.submit();" })
+    </div>
+    }
+    <h1>
+        Available Blood Banks</h1>
+    foreach (var item in Model.BloodBankList)
+    {
+        var name = string.Format("{0} ({1}) ({2})", item.BloodBankName, item.District, item.State); 
+
+    <table class="searchitem">
+        <tr>
+            @*<td class="vtop" style="padding: 7px 5px 5px 5px;">
+                <input type="checkbox" class="required" name="@string.Format("donor_{0}", item.UserId)" value="@item.UserId"/>
+            </td>*@
+            <td>
+                <div>
+                    <h3>@Html.ActionLink(name, AppActionMethods.Home.Donor, AppControllers.Home, new { id = item.BloodBankName.ToLower().Replace(" ", "-"), userid = item.BloodBankId }, null)</h3>
+                    <div>
+                        Mobile No: @item.MobileNo1, @item.MobileNo2</div>
+                    @if (!string.IsNullOrWhiteSpace(item.LandlineNo))
+                    {
+                        <div>
+                            Landline No: @item.LandlineNo</div>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(item.Email))
+                    {
+                        <div>
+                            Email Address: <a href="mailto:@item.Email">@item.Email</a></div>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(item.Website))
+                    {
+                        <div>
+                            Website: <a href="@item.Website">@item.Website</a></div>
+                    }
+                    <div>
+                        Address: @item.Address, @item.Town, @item.District, @item.State, @item.Country</div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    }
+}

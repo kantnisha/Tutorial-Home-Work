@@ -1,0 +1,156 @@
+﻿@using Rajas.Persona.Web.MyBlood4You.Web.Constants;
+<!DOCTYPE html>
+@{
+    Layout = string.Empty;
+}
+<html>
+@Html.Partial("~/views/shared/_header.cshtml")
+<body>
+    <div class="body">
+        <div class="wrapper" id="wrapper">
+            @Html.Partial("~/views/shared/_PageHeader.cshtml")
+            <div id="slider">
+                <div id="slides">
+                    <div class="slide slide_1" style="display: block; z-index: 21;">
+                        <div class="__left">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h3>
+                                                <a href="home/registerdonor">Register now,</a></h3>
+                                            <h2 style="text-align: center;">
+                                                Donate on Demand</h2>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <img src="./content/i/1.gif" alt="" class="__right">
+                    </div>
+                    <div class="slide slide_2" style="z-index: 20; display: none;">
+                        <div class="__left">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h3>
+                                                <a href="home/registerdonor">Register now,</a></h3>
+                                            <h2 style="text-align: center;">
+                                                Donate on Demand</h2>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <img src="./content/i/2.gif" alt="" class="__right">
+                    </div>
+                    <div class="slide slide_3" style="z-index: 20; display: none;">
+                        <div class="__left">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h3>
+                                                <a href="home/registerdonor">Register now,</a></h3>
+                                            <h2 style="text-align: center;">
+                                                Donate on Demand</h2>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <img src="./content/i/3.gif" alt="" class="__right">
+                    </div>
+                </div>
+                <div id="slide_nav">
+                    <a href="javascript:fader._goto(0);" class="active"></a><a href="javascript:fader._goto(1);"
+                        class=""></a><a href="javascript:fader._goto(2);" class=""></a>
+                </div>
+            </div>
+            <h2 class="subtitle">
+                <span>"Blood costs nothing to give, yet it is more valuable than any other resources
+                    on earth..."</span>
+            </h2>
+            <div class="content-blocks" id="content-blocks">
+                <a href="javascript:void(0);" class="nav-arrow nav-arrow-left" onclick="slider.move( 1, this);"
+                    style="display: none;"></a><a href="javascript:void(0);" class="nav-arrow nav-arrow-right"
+                        onclick="slider.move(-1, this);"></a>
+                <div class="content-container">
+                    <div class="content-slider" style="left: 0px; width: 1800px;">
+                        <div class="content-instance">
+                            <h2>
+                                <a href="home/searchdonor" title="Search Donor">
+                                    <img src="./content/i/searchdonor.png" alt="Search Donor">
+                                </a>
+                            </h2>
+                            <p>
+                                We facilitate you with efficient search feature to locate local donors. Our intension
+                                is to easily provide blood donor in case of emergencies. If you are willing to checkout
+                                our donor database visit @Html.ActionLink("Search Donor", AppActionMethods.Home.SearchDonor, AppControllers.Home, new { title = "Search Donor" }).
+                            </p>
+                        </div>
+                        <div class="content-instance">
+                            <h2>
+                                <a href="home/searchbloodbank" title="Search Blood Bank">
+                                    <img src="./content/i/searchbloodbank.png" alt="Search Blood Bank"></a>
+                            </h2>
+                            <p>
+                                We are gathering Blood Banks information from all over the country through @Html.ActionLink("our volunteers", AppActionMethods.Home.SearchVolunteer, AppControllers.Home, new { title = "Search volunteers" }).
+                                You can locate your local blood banks easily here on our portal. Visit @Html.ActionLink("Search Blood Bank", AppActionMethods.Home.SearchBloodBank, AppControllers.Home, new { title = "Search Blood Bank" })
+                                to see our Blood Bank database.
+                            </p>
+                        </div>
+                        <div class="content-instance">
+                            <h2>
+                                <a href="home/registerdonor" title="Register As Donor">
+                                    <img src="./content/i/registerdonor.png" alt="Register As Donor"></a>
+                            </h2>
+                            <p>
+                                Blood cannot be manufactured; it can only come from donors. We request you to @Html.ActionLink("register here", AppActionMethods.Home.RegisterDonor, AppControllers.Home, new { title = "Register as Donar" })
+                                on <a href="." title="MyBlood4You.com">MyBlood4You.com</a>, so that in case of emergency
+                                people around you can locate you as donor.
+                            </p>
+                        </div>
+                        <div class="content-instance">
+                            <h2>
+                                <a href="home/registerbloodbank" title="Register Blood Bank">
+                                    <img src="./content/i/registerbloodbank.png" alt="Register Blood Bank"></a>
+                            </h2>
+                            <p>
+                                We request everyone, to contribute to build up Blood Bank database, which would
+                                be helpful others, who are facing emergencies. We also request our volunteers to
+                                @Html.ActionLink("add blood bank", AppActionMethods.Home.RegisterBloodBank, AppControllers.Home, new { title = "Register Blood Bank" })
+                                information from your area.
+                            </p>
+                        </div>
+                        <div class="content-instance">
+                            <h2>
+                                <a href="home/registervolunteer" title="Register As Volunteer">
+                                    <img src="./content/i/registervolunteer.png" alt="Register As Volunteer"></a>
+                            </h2>
+                            <p>
+                               @Html.ActionLink("Register as a volunteer", AppActionMethods.Home.RegisterVolunteer, AppControllers.Home, new { title = "Register As Volunteer" }) and be a part of this noble initiative with which
+                                we are trying to help society. Once you register with us, we will guide you to contribute
+                                with us for information gathering.
+                            </p>
+                        </div>
+                        <div class="content-instance">
+                            <h2>
+                                <a href="home/searchvolunteer" title="Search Our Volunteer">
+                                    <img src="./content/i/searchourvolunteer.png" alt="Search Our Volunteer">
+                                </a>
+                            </h2>
+                            <p>
+                                You can @Html.ActionLink("search our volunteer", AppActionMethods.Home.SearchVolunteer, AppControllers.Home, new { title = "search our volunteer" }) from our volunteer database, who can help you in case
+                                of emergencies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("~/Views/Shared/_Footer.cshtml")
+</body>
+</html>

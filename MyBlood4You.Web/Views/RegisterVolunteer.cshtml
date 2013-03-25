@@ -1,0 +1,305 @@
+﻿@model Rajas.Persona.Domain.Models.UserModel
+<h1>Register As Volunteer</h1>
+@using (Html.BeginForm())
+{
+    <div class="formdiv @(Model.ProcessingStatus ? "readonly" : "")">
+        <table class="form">
+            <tr>
+                <td colspan="3">
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="eligibilitylist error">
+                            <div style="padding: 5px  0;">
+                                Please resolve below error,</div>
+                            @Html.ValidationSummary(false)
+                        </div>
+                    }
+                    @Html.HiddenFor(model => model.UserId)
+                    @Html.HiddenFor(model => model.WebSiteId)
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td style="min-width: 120px;">
+                    @Html.LabelFor(model => model.FirstName)
+                    @if (!Model.ProcessingStatus)
+                    { <span class="error">*</span> }
+                </td>
+                <td>
+                    @if (!Model.ProcessingStatus)
+                    { 
+                        @Html.TextBoxFor(model => model.FirstName)
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => model.FirstName)
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.LastName)
+                    @if (!Model.ProcessingStatus)
+                    { <span class="error">*</span> }
+                </td>
+                <td>
+                    @if (!Model.ProcessingStatus)
+                    { 
+                        @Html.TextBoxFor(model => model.LastName)
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => model.LastName)
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gender
+                    @if (!Model.ProcessingStatus)
+                    { <span class="error">*</span> }
+                </td>
+                <td>
+                    @if (!Model.ProcessingStatus)
+                    {
+                        <div class="gender">
+                            <label>
+                                <input name="GenderId" type="radio" value="1" @(Model.GenderId == 1 ? "checked=\"checked\"" : string.Empty)>Male</label>
+                            <label>
+                                <input name="GenderId" type="radio" value="2" @(Model.GenderId == 2 ? "checked=\"checked\"" : string.Empty)>Female</label>
+                        </div>
+                    }
+                    else
+                    {
+                        @(Model.GenderId == 1 ? "Male" : Model.GenderId == 2 ? "Female" : string.Empty)
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.DateOfBirth)
+                    @if (!Model.ProcessingStatus)
+                    { <span class="error">*</span> }
+                </td>
+                <td>
+                    @if (!Model.ProcessingStatus)
+                    {
+                        @Html.DropDownListFor(model => model.DayOfBirth, Model.DaySource, null, new { @class = "dropdowns" })
+                        @Html.DropDownListFor(model => model.MonthOfBirth, Model.MonthSource, null, new { @class = "dropdowns" })
+                        @Html.DropDownListFor(model => model.YearOfBirth, Model.YearSource, null, new { @class = "dropdowns" })
+                    }
+                    else
+                    {
+                        @Model.DateOfBirth
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.BloodGroupId)
+                    @if (!Model.ProcessingStatus)
+                    { <span class="error">*</span> }
+                </td>
+                <td>
+                    @if (!Model.ProcessingStatus)
+                    { 
+                        @Html.DropDownListFor(model => model.BloodGroupId, Model.BloodGroupSource, null, new { @class = "dropdowns" })
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => model.BloodGroup)
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.WeightId)
+                    @if (!Model.ProcessingStatus)
+                    { <span class="error">*</span> }
+                </td>
+                <td>
+                    @if (!Model.ProcessingStatus)
+                    { 
+                        @Html.DropDownListFor(model => model.WeightId, Model.WeightSource, null, new { @class = "dropdowns" })
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => model.WeightId)
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.MobileNumber1)
+                    @if (!Model.ProcessingStatus)
+                    { <span class="error">*</span> }
+                </td>
+                <td>
+                    @if (!Model.ProcessingStatus)
+                    { 
+                        @Html.TextBox("mobile1CountryCode", "+91", new { disabled = "disabled", style = "width: 26px;" })
+                        @Html.TextBoxFor(model => model.MobileNumber1, new { style = "width: 110px" })
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => model.MobileNumber1)
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.MobileNumber2)
+                </td>
+                <td>
+                    @if (!Model.ProcessingStatus)
+                    { 
+                        @Html.TextBox("mobile2CountryCode", "+91", new { disabled = "disabled", style = "width: 26px;" })
+                        @Html.TextBoxFor(model => model.MobileNumber2, new { style = "width: 110px" })
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => model.MobileNumber2)
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.LandlineNumber)
+                </td>
+                <td>
+                    @if (!Model.ProcessingStatus)
+                    { 
+                        @Html.TextBox("landlineCountryCode", "+91", new { disabled = "disabled", style = "width: 26px;" })
+                        @Html.TextBoxFor(model => model.LandlineAreaCode, new { style = "width: 30px;" })
+                        @Html.TextBoxFor(model => model.LandlineNumber, new { style = "width: 60px" })
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => model.LandlineNumber)
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Email)
+                </td>
+                <td>
+                    @if (!Model.ProcessingStatus)
+                    { 
+                        @Html.TextBoxFor(model => model.Email, new { style = "width: 220px" })
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => model.Email)
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td class="vtop">
+                    @Html.LabelFor(model => model.Address)
+                </td>
+                <td>
+                    @if (!Model.ProcessingStatus)
+                    { 
+                        @Html.TextAreaFor(model => model.Address, new { cols = 29, rows = 3 })
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => model.Address)
+                    }
+                </td>
+            </tr>
+            @if (!Model.ProcessingStatus)
+            { 
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.CountryId, "Country")
+                        @if (!Model.ProcessingStatus)
+                        { <span class="error">*</span> }
+                    </td>
+                    <td>
+                        @if (!Model.ProcessingStatus)
+                        { 
+                            @Html.DropDownListFor(model => model.CountryId, Model.CountrySource, new { @id = "selectedCountry", @class = "dropdowns" })
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(model => model.Country)
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.StateId, "State")
+                        @if (!Model.ProcessingStatus)
+                        { <span class="error">*</span> }
+                    </td>
+                    <td>
+                        @if (!Model.ProcessingStatus)
+                        { 
+                            @Html.DropDownListFor(model => model.StateId, Model.StateSource, new { @id = "selectedState", @class = "dropdowns" })
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(model => model.State)
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.DistrictId, "District")
+                        @if (!Model.ProcessingStatus)
+                        { <span class="error">*</span> }
+                    </td>
+                    <td>
+                        @if (!Model.ProcessingStatus)
+                        { 
+                            @Html.DropDownListFor(model => model.DistrictId, Model.DistrictSource, new { @id = "selectedDistrict", @class = "dropdowns" })
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(model => model.District)
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.TownId, "Town")
+                        @if (!Model.ProcessingStatus)
+                        { <span class="error">*</span> }
+                    </td>
+                    <td>
+                        @if (!Model.ProcessingStatus)
+                        { 
+                            @Html.DropDownListFor(model => model.TownId, Model.TownSource, new { @id = "selectedTown", @class = "dropdowns" })
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(model => model.Town)
+                        }
+                    </td>
+                </tr>
+            }
+            @if (!Model.ProcessingStatus)
+            { 
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" id="agreed" class="required" name="checkbox" value="checkbox">
+                            I am willing to be a volunteer
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="submit" value="Register" class="register-donor-button" />
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+}

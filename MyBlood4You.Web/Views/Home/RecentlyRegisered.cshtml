@@ -1,9 +1,0 @@
-﻿@model IEnumerable<Rajas.Persona.Domain.Models.UserModel>
-
-<ul>
-@foreach (var donor in Model)
-{
-<li><strong>@donor.FirstName</strong> from @donor.District [@donor.BloodGroup]</li>
-}
-<li>@Html.ActionLink("Find more...", "DonorSearch", "Application")</li>
-</ul>

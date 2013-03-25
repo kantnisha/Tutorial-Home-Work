@@ -1,0 +1,65 @@
+﻿@using Rajas.Persona.Web.MyBlood4You.Web.Constants;
+<div class="footer">
+    <footer>
+		<div class="footer-top">
+			<div class="footer-contact">
+				<div class="footer-contact-left">
+					<h2>Contact Us</h2>
+					<h2 style="color:white;">+91-9665769988</h2>
+					<p>
+						Rajas Consulatants and Services<br/>
+						35 B, Hari Om Colony,<br/>
+						Opp. Shankar Nagar, Amravati,<br/>
+						Maharashtra, India 444 602
+					</p>
+					<p><a href="mailto:support@myblood4you.com">support@myblood4you.com</a></p>
+				</div>
+				<div class="footer-contact-right vtop">
+                    <h2>Social Sharing</h2>
+					@Html.Partial("~/views/shared/_FacebookTwitterLike.cshtml")
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+			<div class="footer-links">
+				<div class="footer-links-left">
+					<h2>Site Map</h2>
+					<div>
+						@Html.ActionLink("Home", AppActionMethods.Home.Index, AppControllers.Home, new { title = "Home" })
+                        @Html.ActionLink("Search Donar", AppActionMethods.Home.SearchDonor, AppControllers.Home, new { title = "Search Donar" })
+						@Html.ActionLink("Register as Donar", AppActionMethods.Home.RegisterDonor, AppControllers.Home, new { title = "Register as Donar" })
+                        @Html.ActionLink("Search Blood Bank", AppActionMethods.Home.SearchBloodBank, AppControllers.Home, new { title = "Search Blood Bank" })
+                        @Html.ActionLink("Register Blood Bank", AppActionMethods.Home.RegisterBloodBank, AppControllers.Home, new { title = "Register Blood Bank" })
+                        @Html.ActionLink("Search Our Volunteer", AppActionMethods.Home.SearchVolunteer, AppControllers.Home, new { title = "Search Our Volunteer" })
+                        @Html.ActionLink("Register As Volunteer", AppActionMethods.Home.RegisterVolunteer, AppControllers.Home, new { title = "Register As Volunteer" })
+						@Html.ActionLink("Contact us", AppActionMethods.Home.ContactUs, AppControllers.Home, new { title = "Contact us" })
+					</div>
+				</div>
+			</div>
+			<div class="footer-newsletter">
+				<form action="" method="post" id="subForm">
+					<h2>Newsletter</h2>
+					<p>Receive information on the latest trends and promotions at MyBlood4You.com</p>
+					<div class="footer-newsletter-input">
+						<input type="text" name="cm-name" class="placeholder" value="Name">
+					</div>
+					<div class="footer-newsletter-input">
+						<input type="text" name="cm-ykidwd-ykidwd" class="placeholder" value="Email address here">
+					</div>
+					<div class="footer-newsletter-submit">
+						<button type="submit"><span style="color: #666;">Submit</span></button>
+					</div>
+				</form>			
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>
+				<span>Rajas Consulatants and Services © 2013 Amravati, Maharashtra, India 444 602</span>
+			</p>
+			<p>
+				<a href="">Our Privacy Policy</a> | 
+				<a href="">Terms of Our Service</a> | 
+				<a href="">XML Sitemap</a>
+			</p>
+		</div>
+	</footer>
+</div>

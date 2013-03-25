@@ -1,0 +1,60 @@
+﻿<h1>Search Donors</h1>
+<input type="text" id="autosuggest-input" value="" />
+<input type="hidden" id="autosuggest-input-hidden" value="" />
+<a href="#" class="searchDonor">Search</a>
+<ul class="autosuggestList">
+</ul>
+<div class="donor-listing">
+    @Html.Action("DonorList", "Application")
+</div>
+@if (false)
+{
+    <script src="../../Scripts/jquery-1.9.1-vsdoc.js" type="text/javascript"></script>
+}
+<script type="text/javascript">
+    $(function () {
+        $('#autosuggest-input').keyup(function () {
+            var inputValue = $(this).val();
+            if (inputValue.length > 2) {
+                var url = "/Application/SearchCity";
+                var param = { id: inputValue };
+                var $autosuggestList = $('.autosuggestList');
+                $autosuggestList.empty();
+                $.getJSON(url, param, function (cities) {
+                    if (cities.length > 0) {
+                        $.each(cities, function (index, city) {
+                            $('<li></li>').attr("id", city.Id).append('<a href="#">' + city.Value + '</a>').appendTo($autosuggestList);
+                        });
+                    }
+                    else {
+                        $('<li></li>').attr("id", "nodata").append('<a>' + "No City Found matching " + "'" + inputValue + "'" + '</a>').appendTo($autosuggestList);
+                    }
+                });
+            }
+        });
+
+        $('ul.autosuggestList').delegate('li a', 'click', function () {
+            $('#autosuggest-input').val($(this).parent().text());
+            $('#autosuggest-input-hidden').val($(this).parent().attr("id"));
+            $('.autosuggestList').empty();
+        });
+
+        $('body').click(function () {
+            $('.autosuggestList').empty();
+        });
+
+        $('.searchDonor').click(function () {
+
+            var id = $('#autosuggest-input-hidden').val();
+            var url = "/Application/DonorList/" + id;
+            $.ajax({
+                url: url,
+                type: "GET",
+                cache: false,
+                success: function (data) {
+                    $('.donor-listing').html(data);
+                } 
+            });
+        });
+    });
+</script>

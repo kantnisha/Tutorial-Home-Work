@@ -1,0 +1,36 @@
+﻿@using Rajas.Persona.Web.MyBlood4You.Web.Constants;
+<nav>
+	<ul id="jsddm">
+        <li>@Html.ActionLink("Home", AppActionMethods.Home.Index, AppControllers.Home, null, new { title = "Home" })</li>
+        <li class="drop-down">
+            <a href="javascript:void(0);" class="">Search</a>
+            <ul style="display: none;">
+                <li>@Html.ActionLink("Search Donar", AppActionMethods.Home.SearchDonor, AppControllers.Home, null, new { title = "Search Donor" })</li>
+                <li>@Html.ActionLink("Search Blood Bank", AppActionMethods.Home.SearchBloodBank, AppControllers.Home, null, new { title = "Search Blood Bank" })</li>
+                <li>@Html.ActionLink("Search for Volunteer", AppActionMethods.Home.SearchVolunteer, AppControllers.Home, null, new { title = "Search for Volunteer" })</li>
+            </ul>
+        </li>
+        <li class="drop-down">
+            <a href="javascript:void(0);" class="">Register</a>
+            <ul style="display: none;">
+                <li>@Html.ActionLink("Register as Donar", AppActionMethods.Home.RegisterDonor, AppControllers.Home, null, new { title = "Register as Donar" })</li>
+                <li>@Html.ActionLink("Register Blood Bank", AppActionMethods.Home.RegisterBloodBank, AppControllers.Home, null, new { title = "Register Blood Bank" })</li>
+                <li>@Html.ActionLink("Register As Volunteer", AppActionMethods.Home.RegisterVolunteer, AppControllers.Home, null, new { title = "Register As Volunteer" })</li>
+            </ul>
+        </li>
+        <li class="drop-down">
+            <a href="javascript:void(0);" class="">Information</a>
+            <ul style="display: none;">
+                <li>@Html.ActionLink("Blood Compatibility Chart", AppActionMethods.Home.BloodChart, AppControllers.Home, null, new { title = "Blood Compatibility Chart" })</li>
+            </ul>
+        </li>
+        <li class="drop-down">
+            <a href="javascript:void(0);" class="">About us</a>
+            <ul style="display: none;">
+                <li>@Html.ActionLink("Who We Are?", AppActionMethods.Home.WhoWeAre, AppControllers.Home, null, new { title = "Who We Are?" })</li>
+                <li>@Html.ActionLink("What We Do?", AppActionMethods.Home.WhatWeDo, AppControllers.Home, null, new { title = "What We Do?" })</li>
+            </ul>
+        </li>
+        <li>@Html.ActionLink("Contact us", AppActionMethods.Home.ContactUs, AppControllers.Home, null, new { title = "Contact us" })</li>
+    </ul>
+</nav>

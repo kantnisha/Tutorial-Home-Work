@@ -1,0 +1,10 @@
+﻿<header>
+	<h1 class="logo">
+		<a href="http://www.MyBlood4You.com" title="MyBlood4you.com">
+			<img src="@Html.RenderStaticContentUrl("i/logosmall.gif")" alt="MyBlood4You.com" title="MyBlood4You.com">
+		</a>
+	</h1>
+    @Html.Partial("~/views/shared/_FacebookTwitterLikeFlot.cshtml")
+	<a href="javascript:void(0);" id="show-nav" onclick="menu.toggle_menu(this);">Show Menu</a>	
+    @Html.Partial("~/views/shared/_menu.cshtml")
+</header>

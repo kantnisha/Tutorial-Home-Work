@@ -1,0 +1,21 @@
+﻿@using Rajas.Persona.Web.MyBlood4You.Web.Constants;
+@model Rajas.Persona.Domain.Models.UserModel
+<div>
+    <h1>
+        Recently Registered Donors</h1>
+    @if (Model.RecentlyRegisteredUsers != null)
+    {
+        <div class="eligibilitylist">
+            <ul>
+                @foreach (var donor in Model.RecentlyRegisteredUsers)
+                {
+                    <li>@Html.ActionLink(donor.Name, AppActionMethods.Home.Donor, AppControllers.Home, new { id = donor.Name.ToLower().Replace(" ", "-"), userid = donor.UserId }, null)
+                        from @donor.District [@donor.BloodGroup]</li>
+                }
+            </ul>
+            <div style="padding-top: 8px;">
+                @Html.ActionLink("See All Donors", "DonorSearch", "Application")
+            </div>
+        </div>
+    }
+</div>

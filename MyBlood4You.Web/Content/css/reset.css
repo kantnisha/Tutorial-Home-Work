@@ -1,0 +1,76 @@
+﻿/* Reset */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figure, figcaption, hgroup, 
+menu, footer, header, nav, section, summary, time, mark, audio, video 
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size:14px;
+}
+article, aside, canvas, figure, figure img, figcaption, hgroup,footer, header, nav, section, audio, video 
+{
+	display: block;
+}
+a img {border: 0;}
+
+/* Font Faces */
+@font-face {
+    font-family: 'DeliciousHeavyRegular';
+    src: url('fonts/delicious-heavy-webfont.eot');
+    src: url('fonts/delicious-heavy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/delicious-heavy-webfont.woff') format('woff'),
+         url('fonts/delicious-heavy-webfont.ttf') format('truetype'),
+         url('fonts/delicious-heavy-webfont.svg#DeliciousHeavyRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MyriadProRegular';
+    src: url('fonts/mpr-webfont.eot');
+    src: url('fonts/mpr-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/mpr-webfont.woff') format('woff'),
+         url('fonts/mpr-webfont.ttf') format('truetype'),
+         url('fonts/mpr-webfont.svg#MyriadProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MyriadProSemibold';
+    src: url('fonts/mpsb-webfont.eot');
+    src: url('fonts/mpsb-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/mpsb-webfont.woff') format('woff'),
+         url('fonts/mpsb-webfont.ttf') format('truetype'),
+         url('fonts/mpsb-webfont.svg#MyriadProSemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: MyriadProRegular, Arial;
+}
+
+button::-moz-focus-inner { padding:0; border:0; } 	/* FF Fix */
+button { -webkit-border-fit:lines; } 				/* <- Safari & Google Chrome Fix */
+button { overflow:visible; width:auto; border:0; padding:0; margin:0; cursor:pointer; background:transparent; }
+button span {  }
+button span span {  }
+
+a {
+	text-decoration:none;
+	color:#aa0000;
+}
+
+a:hover {
+	text-decoration:underline;
+	color:#aa0000;
+}
+
+h1 { font-family:'DeliciousHeavyRegular', Arial; font-weight:normal; }
+h2 { font-weight:normal; }
+h3 { font-weight:normal; }
+h4 { font-weight:normal; }
+h5 { font-weight:normal; }
+h6 { font-weight:normal; }
